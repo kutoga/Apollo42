@@ -23,9 +23,9 @@ def get_candidates_from_name(file):
     file = file.strip()
     if file:
 
-        # does the name end with \[[a-zA-Z0-9]+\]? we want to ignore that (this was added by youtube-dl)
+        # does the name end with \[[a-zA-Z0-9_]+\]? we want to ignore that (this was added by youtube-dl)
         parts = file.split()
-        if len(parts) > 1 and re.match(r'^\[[0-9a-zA-Z]{5,}\]$', parts[-1]):
+        if len(parts) > 1 and re.match(r'^\[[0-9a-zA-Z_]{5,}\]$', parts[-1]):
             low_prio_candidates.insert(0, file)
             file = file[:-len(parts[-1])].strip()
 
